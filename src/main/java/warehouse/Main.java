@@ -2,11 +2,10 @@ package warehouse;
 
 import warehouse.model.Admin;
 import warehouse.model.Customer;
-import warehouse.model.Order;
 import warehouse.model.Product;
 import warehouse.utility.ReportingImpl;
 
-import static warehouse.business_logic.OrderProcessing.*;
+import static warehouse.business_logic.OrderProcessing.orderProduct;
 import static warehouse.business_logic.WarehouseManagement.*;
 import static warehouse.data_access.Users.addUser;
 import static warehouse.data_access.Users.signUp;
@@ -35,10 +34,6 @@ public class Main {//"src/main/java/warehouse/data_access/orders.json"
         addProduct(tweezer);
         addProduct(pincer);
         addProduct(cutter);
-        Order order = new Order(pincer, customer);
-        orders.add(order);
-        writeToJsonFile(orders, "src/main/java/warehouse/data_access/orders.json");
-        readOrdersFromJsonFile();
 
         ReportingImpl reporting = new ReportingImpl();
 
